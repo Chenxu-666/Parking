@@ -101,6 +101,7 @@ public class ManagerController {
      * 查询所有的用户--包括root、manager和simple
      * */
     @GetMapping("/findAll")
+    @ResponseBody
     public List<Manager> findAll(){
         return managerService.findAll();
     }

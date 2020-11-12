@@ -3,10 +3,7 @@ package com.example.parking_manage.controller;
 import com.example.parking_manage.entity.ParkingSpace;
 import com.example.parking_manage.service.ParkingSpaceService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -18,8 +15,8 @@ public class ParkingSpaceController {
     @Autowired
     private ParkingSpaceService parkingSpaceService;
 
-    /*查找所有的信息啊啊啊啊啊*/
     @GetMapping("/findAll")
+    @ResponseBody
     public List<ParkingSpace> findAll() {
         return parkingSpaceService.findAll();
     }
@@ -51,7 +48,7 @@ public class ParkingSpaceController {
             } else {
                 //创建车位
                 ParkingSpace p = new ParkingSpace(null, Integer.parseInt(pl_id), "空闲", parking_no, null);
-//              //控制台输出用户详细数据，用于查看与记录
+                //控制台输出用户详细数据，用于查看与记录
                 System.out.print("详细：");
                 System.out.println(p.toString());
                 //插入
@@ -61,7 +58,6 @@ public class ParkingSpaceController {
         } else {
             return "接收数据出错";
         }
-
     }
 
     //修改车位的信息
