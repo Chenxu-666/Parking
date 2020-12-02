@@ -4,7 +4,7 @@ spring:
     url: jdbc:mysql://localhost:3306/site_manage_system?serverTimezone = GMT
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password: ruanjian
+    password: 123456
 
     type: com.alibaba.druid.pool.DruidDataSource
 
